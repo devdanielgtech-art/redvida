@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/', [ControllerSistemas::class, 'inicio']);
 Route::post('/buscarDonantesPublico', [ControllerSistemas::class, 'buscarDonantesPublico']);
 

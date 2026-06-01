@@ -163,6 +163,7 @@ class ControllerSistemas extends Controller
         return view('inicio');
     }
 
+    
     // Búsqueda pública de donantes
     public function buscarDonantesPublico(Request $request){
         $tipo_sangre = $request->tipo_sangre;
