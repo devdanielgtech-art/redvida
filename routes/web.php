@@ -15,7 +15,6 @@ Route::post('/buscarDonantesPublico', [ControllerSistemas::class, 'buscarDonante
 Route::get('/dashboard', function () {
     return view('inicio/contenido_index');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 // Módulo Donantes
 Route::get('/donantes',[ControllerSistemas::class, 'donantes'])->middleware(['auth', 'verified']);
 Route::get('/nuevoRegistroDonante',[ControllerSistemas::class, 'nuevoRegistroDonante']);
