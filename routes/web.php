@@ -35,8 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-
 // Login para donantes
 Route::get('/donante/login', [ControllerSistemas::class, 'loginDonante'])->name('donante.login');
 Route::post('/donante/login', [ControllerSistemas::class, 'autenticarDonante']);
