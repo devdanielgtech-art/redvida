@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Librería de Alertas</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">Mi Librería de Alertas</h1>
+        <p class="demo-subtitle">Una librería de alertas moderna y personalizable</p>
+        
+        <div class="demo-buttons">
+            <button class="demo-btn success" onclick="showSuccess()">Éxito</button>
+            <button class="demo-btn error" onclick="showError()">Error</button>
+            <button class="demo-btn warning" onclick="showWarning()">Advertencia</button>
+            <button class="demo-btn info" onclick="showInfo()">Información</button>
+            <button class="demo-btn confirm" onclick="showConfirm()">Confirmar</button>
+            <button class="demo-btn prompt" onclick="showPrompt()">Prompt</button>
+        </div>
+
+        <div class="code-example">
+            <strong>Ejemplo de uso:</strong><br><br>
+            // Alerta simple<br>
+            CustomAlert.fire({<br>
+            &nbsp;&nbsp;type: 'success',<br>
+            &nbsp;&nbsp;title: '¡Éxito!',<br>
+            &nbsp;&nbsp;text: 'Operación completada correctamente'<br>
+            });<br><br>
+            
+            // Confirmación<br>
+            CustomAlert.confirm({<br>
+            &nbsp;&nbsp;title: '¿Estás seguro?',<br>
+            &nbsp;&nbsp;text: 'Esta acción no se puede deshacer'<br>
+            }).then(result => {<br>
+            &nbsp;&nbsp;if (result) console.log('Confirmado');<br>
+            });
+        </div>
+    </div>
+
+    <script>
+        
+
+        // Funciones de demo
+        function showSuccess() {
+            CustomAlert.fire({
+                type: 'success',
+                title: '¡Éxito!',
+                text: 'La operación se completó correctamente'
+            });
+        }
+
+        function showError() {
+            CustomAlert.fire({
+                type: 'error',
+                title: 'Error',
+                text: 'Algo salió mal. Por favor, inténtalo de nuevo.'
+            });
+        }
+
+        function showWarning() {
+            CustomAlert.fire({
+                type: 'warning',
+                title: 'Advertencia',
+                text: 'Esta acción puede tener consecuencias importantes'
+            });
+        }
+
+        function showInfo() {
+            CustomAlert.fire({
+                type: 'info',
+                title: 'Información',
+                text: 'Aquí tienes información importante que debes saber'
+            });
+        }
+
+        function showConfirm() {
+            CustomAlert.confirm({
+                type: 'delete',
+                title: '¿Estás seguro?',
+                text: 'Esta acción no se puede deshacer'
+            }).then(result => {
+                if (result) {
+                    CustomAlert.success('Confirmado', 'Has confirmado la acción');
+                } else {
+                    CustomAlert.info('Cancelado', 'La acción fue cancelada');
+                }
+            });
+        }
+
+        function showPrompt() {
+            CustomAlert.prompt({
+                title: 'Ingresa tu nombre',
+                text: 'Por favor, escribe tu nombre completo',
+                inputPlaceholder: 'Tu nombre aquí...'
+            }).then(result => {
+                if (result) {
+                    CustomAlert.success('¡Hola!', `Encantado de conocerte, ${result}`);
+                } else {
+                    CustomAlert.info('Cancelado', 'No ingresaste ningún nombre');
+                }
+            });
+        }
+
+        // Hacer CustomAlert disponible globalmente
+        // window.CustomAlert = CustomAlert;
+    </script>
+</body>
+</html>
