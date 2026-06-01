@@ -39,7 +39,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/donante/login', [ControllerSistemas::class, 'loginDonante'])->name('donante.login');
 Route::post('/donante/login', [ControllerSistemas::class, 'autenticarDonante']);
 Route::get('/donante/logout', [ControllerSistemas::class, 'logoutDonante'])->name('donante.logout');
-
 // Panel del donante
 Route::get('/donante/panel', [ControllerSistemas::class, 'panelDonante'])->name('donante.panel');
 Route::post('/donante/actualizar', [ControllerSistemas::class, 'actualizarDonante']);
